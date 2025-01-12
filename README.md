@@ -28,45 +28,13 @@ $ python run_moshpp.py
 ```
 
 ### run_moshpp.py
-```bash
-$ python run_moshpp.py -h
-usage: run_moshpp.py [-h] [-m MOCAP_BASE_DIR] [-w WORK_BASE_DIR]
-                     [--support_base_dir SUPPORT_BASE_DIR]
-                     [--max_num_jobs MAX_NUM_JOBS] [--subject SUBJECT]
-                     [--rotation ROTATION] [--unit {mm,cm,m}]
-                     [--cpu_count CPU_COUNT]
-
-Mosh++ runner
-
-optional arguments:
-  -h, --help            show this help message and exit
-  -m MOCAP_BASE_DIR, --mocap_base_dir MOCAP_BASE_DIR
-                        Path to the directory containing motion capture data.
-                        It is assumed that subdirectories for individual
-                        subjects exist directly under this directory, with
-                        `.c3d` files located within those subdirectories.
-                        (default: ~/MOSHPP_WORK_BASE/support_files/evaluation_
-                        mocaps/original/SOMA_manual_labeled)
-  -w WORK_BASE_DIR, --work_base_dir WORK_BASE_DIR
-                        Path to the directory where results from Mosh++ will
-                        be saved. (default:
-                        ~/MOSHPP_WORK_BASE/running_just_mosh)
-  --support_base_dir SUPPORT_BASE_DIR
-                        Path to the directory containing `support_files`
-                        required for running Mosh++. (default:
-                        ~/MOSHPP_WORK_BASE/support_files)
-  --max_num_jobs MAX_NUM_JOBS
-                        Number of `.c3d` files to process with Mosh++.
-                        (default: 1)
-  --subject SUBJECT     Specify a single subject to process if you want to
-                        limit execution to one specific individual. (default:
-                        )
-  --rotation ROTATION   Specify [x, y, z] rotation angles in degrees to adjust
-                        the orientation if needed. The motion capture data
-                        assumes the z-axis is up. (default: [0,0,0])
-  --unit {mm,cm,m}      Specify the unit of measurement if the `.c3d` files
-                        are not in millimeters. (default: mm)
-  --cpu_count CPU_COUNT
-                        Number of CPUs to use for parallel processing.
-                        (default: 256)
-```
+| option | description | default |
+| --- | --- | --- |
+| `--mocap_base_dir`, `-m` | Path to the directory containing motion capture data. It is assumed that subdirectories for individual subjects exist directly under this directory, with `.c3d` files located within those subdirectories. | `"~/MOSHPP_WORK_BASE/support_filesevaluation_mocaps/original/SOMA_manual_labeled"` |
+| `--work_base_dir`, `-w` | Path to the directory where results from Mosh++ will be saved. | `"~/MOSHPP_WORK_BASE/running_just_mosh"` |
+| `--support_base_dir` | Path to the directory containing `support_files` required for running Mosh++. | `"~/MOSHPP_WORK_BASE/support_files"` |
+| `--max_num_jobs` | Number of `.c3d` files to process with Mosh++. | `1` |
+| `--subject` | Specify a single subject to process if you want to limit execution to one specific individual. | `""` |
+| `--rotation` | Specify [x, y, z] rotation angles in degrees to adjust the orientation if needed. The motion capture data assumes the z-axis is up. | `"[0,0,0]"` |
+| `--unit` | Specify the unit of measurement if the `.c3d` files are not in millimeters. `"mm"`, `"cm"` `"m"` | `"mm"` |
+| `--cpu_count` | Number of CPUs to use for parallel processing. | 256 |
