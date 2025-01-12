@@ -25,9 +25,10 @@ def main(args):
     mocap_base_dir = osp.expanduser(args.mocap_base_dir)
     work_base_dir = osp.expanduser(args.work_base_dir)
 
-    mocap_fnames = glob(osp.join(mocap_base_dir,  "*/*.c3d"))
     if args.subject:
-        mocap_fnames = [fname for fname in mocap_fnames if args.subject in fname]
+        mocap_fnames = glob(osp.join(mocap_base_dir,  f"{args.subject}/*.c3d"))
+    else:
+        mocap_fnames = glob(osp.join(mocap_base_dir,  "*/*.c3d"))
 
     logger.info(f"#mocaps found for {mocap_base_dir}: {len(mocap_fnames)}")
 
